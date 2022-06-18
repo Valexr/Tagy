@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'GoogleSans';
+    src: url('GoogleSans-Regular.eot');
+    src: local('GoogleSans'), local('GoogleSans-Regular'), url('GoogleSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GoogleSans';
+    src: url('GoogleSans-Bold.eot');
+    src: local('GoogleSans Bold'), local('GoogleSans-Bold'), url('GoogleSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/*MATERIAL-ICON*/
+@font-face {
+    font-family: 'Material Icons Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(Material-Icons-Outlined.woff2) format('woff2');
+}

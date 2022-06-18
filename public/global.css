@@ -1,0 +1,348 @@
+body {
+	margin: 0;
+	font-family: 'GoogleSans', sans-serif;;
+	color: #001f3f;
+	background-color: #55b9f3;
+	/*background-image: url("./img/bg.svg");*/
+	background-size: 250px 250px;
+}
+
+button {
+	position: absolute;
+	border: 0;
+	opacity: 0.83;
+	cursor: pointer;
+}
+
+button:hover {
+	opacity: 1;
+}
+
+.board {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 99vw;
+	height: 99vw;
+	margin: -49.5vw 0 0 -49.5vw;
+}
+
+.tileWrapper {
+	position: absolute;
+	display: table;
+	box-sizing: border-box;
+	width: 24.75vw;
+	height: 24.75vw;
+	padding: 0.75vw;
+	transition: transform, 0.15s;
+
+	-webkit-box-sizing: border-box;
+}
+
+.tile {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	/*font-family: Helvetica, Arial, sans-serif;*/
+	font-size: 2.5rem;
+	text-align: center;
+	vertical-align: middle;
+	background-color: white;
+	/*opacity: 0.83;*/
+	user-select: none;
+	border-radius: 10px;
+	background: linear-gradient(145deg, #4da7db, #5bc6ff);
+	box-shadow:  5px 5px 12px #4da7db, -5px -5px 12px #5eccff;
+	outline: 0;
+	cursor: grab;
+	border: 2px solid #5bc6ff;
+
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.board > button {
+	top: -19vw;
+	width: 15vw;
+	height: 15vw;
+}
+
+.shuffleBtn {
+	left: 4vw;
+	background-color: white;
+	background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2080%2080%27%3E%3Cpath%20fill%3D%27rgb(41%2C143%2C145)%27%20d%3D%27M58.385%2C34.343V21.615L53.77%2C26.23C50.244%2C22.694%2C45.377%2C20.5%2C40%2C20.5c-10.752%2C0-19.5%2C8.748-19.5%2C19.5S29.248%2C59.5%2C40%2C59.5%20%20c7.205%2C0%2C13.496-3.939%2C16.871-9.767l-4.326-2.496C50.035%2C51.571%2C45.358%2C54.5%2C40%2C54.5c-7.995%2C0-14.5-6.505-14.5-14.5%20%20S32.005%2C25.5%2C40%2C25.5c3.998%2C0%2C7.617%2C1.632%2C10.239%2C4.261l-4.583%2C4.583H58.385z%27%2F%3E%3C%2Fsvg%3E");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 15vw 15vw;
+	border-radius: 50%;
+}
+
+.openAboutBtn {
+	right: 4vw;
+	font-family: inherit;
+	background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20x%3D%270px%27%20y%3D%270px%27%20viewBox%3D%270%200%20426.667%20426.667%27%20style%3D%27enable-background%3Anew%200%200%20426.667%20426.667%3B%27%20xml%3Aspace%3D%27preserve%27%3E%3Cg%20style%3D%27fill%3Awhite%27%3E%3Cpath%20d%3D%27M213.338%2C0C95.509%2C0%2C0%2C95.497%2C0%2C213.325c0%2C117.854%2C95.509%2C213.342%2C213.338%2C213.342%20c117.82%2C0%2C213.329-95.488%2C213.329-213.342C426.667%2C95.497%2C331.157%2C0%2C213.338%2C0z%27%2F%3E%3Cpolygon%20points%3D%27325.935%2C394.449%20419.55%2C419.529%20394.466%2C325.918%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+	background-repeat: no-repeat;
+}
+
+.openAboutBtn::before {
+	content: "i";
+	font-size: 10vw;
+	font-weight: bold;
+	color: #298f91;
+}
+
+.closeAboutBtn {
+	top: 3vw;
+	right: 3vw;
+	z-index: 1;
+	width: 13vw;
+	height: 13vw;
+	background-color: transparent;
+}
+
+.closeAboutBtn::before,
+.closeAboutBtn::after {
+	content: "";
+	position: absolute;
+	top: 5.6vw;
+	right: 1.5vw;
+	width: 12vw;
+	height: 1.8vw;
+	background-color: #298f91;
+}
+
+.closeAboutBtn::before {
+	transform: rotate(45deg);
+
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.closeAboutBtn::after {
+	transform: rotate(-45deg);
+	
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+.textSection {
+	position: absolute;
+	top: 1vw;
+	right: 1vw;
+	bottom: 1vw;
+	left: 1vw;
+}
+
+.textWrapper {
+	display: table;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 0 3vh 2.5vh;
+	background-color: white;
+	opacity: 0.83;
+
+	-webkit-box-sizing: border-box;
+}
+
+.textContainer {
+	display: table-cell;
+	font-size: 4vh;
+	vertical-align: middle;
+}
+
+.textContainer > h3 {
+	margin: 2.5vh 0;
+	text-align: center;
+}
+
+.textContainer > p {
+	display: inline;
+	margin-left: 4vh;
+	hyphens: auto;
+
+	-ms-hyphens: auto;
+	-webkit-hyphens: auto;
+}
+
+.visuallyHidden:not(:focus):not(:active) {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	overflow: hidden;
+	white-space: nowrap !important;
+}
+
+.hidden {
+	display: none;
+}
+
+@media (orientation: landscape) {
+
+	.board {
+		width: 80vh;
+		height: 80vh;
+		margin: -40vh 0 0 -40vh;
+	}
+
+	.tileWrapper {
+		width: 20vh;
+		height: 20vh;
+		padding: 0.5vh;
+	}
+
+	.tile {
+		/*font-size: 10vh;*/
+	}
+
+	.board > button {
+		top: 0;
+		width: 16vh;
+		height: 16vh;
+	}
+
+	.shuffleBtn {
+		left: -25vh;
+		background-size: 16vh 16vh;
+	}
+
+	.openAboutBtn {
+		right: -25vh;
+	}
+
+	.openAboutBtn::before {
+		font-size: 10vh;
+	}
+
+	.closeAboutBtn {
+		top: 3vh;
+		right: 3vh;
+		width: 13vh;
+		height: 13vh;
+	}
+
+	.closeAboutBtn::before,
+	.closeAboutBtn::after {
+		top: 5.6vh;
+		right: 1.5vh;
+		width: 12vh;
+		height: 1.8vh;
+	}
+
+	.textSection {
+		top: 1vh;
+		right: 1vh;
+		bottom: 1vh;
+		left: 1vh;
+	}
+
+	.textWrapper {
+		padding: 0 3.2vw 2.4vw;
+	}
+
+	.textContainer {
+		font-size: 3.2vw;
+	}
+
+	.textContainer > h3 {
+		margin: 2.4vw 0;
+	}
+
+	.textContainer > p {
+		margin-left: 4vw;
+	}
+}
+
+@media (min-width: 541px) and (min-height: 541px) {
+
+	body {
+		background-size: 350px 350px;
+	}
+
+	.board {
+		width: 400px;
+		height: 400px;
+		margin: -200px 0 0 -200px;
+	}
+
+	.tileWrapper {
+		width: 100px;
+		height: 100px;
+		/*padding: 2px;*/
+	}
+
+	.tile {
+		/*font-size: 46px;*/
+	}
+
+	.textSection {
+		top: 50%;
+		left: 50%;
+		width: 520px;
+		height: 380px;
+		margin: -190px 0 0 -260px;
+		opacity: 1;
+	}
+
+	.textWrapper {
+		padding: 0;
+	}
+
+	.textContainer {
+		padding: 17px 27px 27px;
+		font-size: 32px;
+	}
+
+	.textContainer > h3 {
+		margin: 10px 0;
+	}
+
+	.textContainer > p {
+		margin-left: 28px;
+	}
+
+	.board > button {
+		top: -80px;
+		width: 70px;
+		height: 70px;
+	}
+
+	.shuffleBtn {
+		left: -76px;
+		background-size: 70px 70px;
+	}
+
+	.openAboutBtn {
+		right: -76px;
+	}
+
+	.openAboutBtn::before {
+		font-size: 45px;
+	}
+
+	.closeAboutBtn {
+		top: -70px;
+		right: -70px;
+		width: 60px;
+		height: 60px;
+		background-color: white;
+		border-radius: 50%;
+	}
+
+	.closeAboutBtn::before,
+	.closeAboutBtn::after {
+		top: 27px;
+		left: 11px;
+		width: 38px;
+		height: 6px;
+	}
+}

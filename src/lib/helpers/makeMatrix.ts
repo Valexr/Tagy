@@ -1,7 +1,9 @@
+import type { Matrix } from "$types";
+
 export default function makeMatrix() {
-    let arr,
-        arrIndex = 0,
-        matrix;
+    let arr: number[] = [],
+        matrix: Matrix = Object.assign([], { void: { m: 0, n: 0 } }),
+        arrIndex = 0
 
     function makeArray() {
 
@@ -12,8 +14,8 @@ export default function makeMatrix() {
             let randomIndex,
                 temp;
 
-            arr.map(function(value, index) {
-                randomIndex = Math.floor(Math.random()*16);
+            arr.map(function (value, index) {
+                randomIndex = Math.floor(Math.random() * 16);
                 if (arr[randomIndex] !== value) {
                     temp = arr[randomIndex];
                     arr[randomIndex] = value;
@@ -25,17 +27,17 @@ export default function makeMatrix() {
         function checkIsSolvable() {
 
             let inversionCount = 0,
-                nullIndex;
+                nullIndex = 0;
 
-            arr.map(function(value, index) {
+            arr.map(function (value, index) {
                 if (value === 0) nullIndex = index;
-                else if (value > 1) for (let i = index+1; i < 16; i++)
+                else if (value > 1) for (let i = index + 1; i < 16; i++)
                     if (value > arr[i] && arr[i] !== 0) inversionCount++;
             });
             if (
-                (!(inversionCount%2) && ((nullIndex > 3 && nullIndex < 8) || (nullIndex > 11 && nullIndex < 16)))
+                (!(inversionCount % 2) && ((nullIndex > 3 && nullIndex < 8) || (nullIndex > 11 && nullIndex < 16)))
                 ||
-                ((inversionCount%2) && (nullIndex < 4 || (nullIndex > 7 && nullIndex < 12)))
+                ((inversionCount % 2) && (nullIndex < 4 || (nullIndex > 7 && nullIndex < 12)))
             ) isSolvable = true;
         }
 
@@ -48,7 +50,7 @@ export default function makeMatrix() {
     }
 
     makeArray();
-    matrix = [];
+
     for (let i = 0; i < 4; i++) {
         matrix[i] = [];
         for (let j = 0; j < 4; j++) {
@@ -57,7 +59,7 @@ export default function makeMatrix() {
             }
             else {
                 matrix[i][j] = 0;
-                matrix.void = {m: i, n: j};
+                matrix.void = { m: i, n: j };
             }
             arrIndex++;
         }

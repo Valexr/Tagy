@@ -1,9 +1,8 @@
 body {
 	margin: 0;
-	font-family: 'GoogleSans', sans-serif;;
+	font-family: system-ui;
 	color: #001f3f;
 	background-color: #55b9f3;
-	/*background-image: url("./img/bg.svg");*/
 	background-size: 250px 250px;
 }
 
@@ -52,7 +51,7 @@ button:hover {
 	user-select: none;
 	border-radius: 10px;
 	background: linear-gradient(145deg, #4da7db, #5bc6ff);
-	box-shadow:  5px 5px 12px #4da7db, -5px -5px 12px #5eccff;
+	box-shadow: 5px 5px 12px #4da7db, -5px -5px 12px #5eccff;
 	outline: 0;
 	cursor: grab;
 	border: 2px solid #5bc6ff;
@@ -67,7 +66,7 @@ button:hover {
 	cursor: pointer;
 }
 
-.board > button {
+.board>button {
 	top: -19vw;
 	width: 15vw;
 	height: 15vw;
@@ -126,7 +125,7 @@ button:hover {
 
 .closeAboutBtn::after {
 	transform: rotate(-45deg);
-	
+
 	-ms-transform: rotate(-45deg);
 	-webkit-transform: rotate(-45deg);
 }
@@ -157,12 +156,12 @@ button:hover {
 	vertical-align: middle;
 }
 
-.textContainer > h3 {
+.textContainer>h3 {
 	margin: 2.5vh 0;
 	text-align: center;
 }
 
-.textContainer > p {
+.textContainer>p {
 	display: inline;
 	margin-left: 4vh;
 	hyphens: auto;
@@ -204,7 +203,7 @@ button:hover {
 		/*font-size: 10vh;*/
 	}
 
-	.board > button {
+	.board>button {
 		top: 0;
 		width: 16vh;
 		height: 16vh;
@@ -253,11 +252,11 @@ button:hover {
 		font-size: 3.2vw;
 	}
 
-	.textContainer > h3 {
+	.textContainer>h3 {
 		margin: 2.4vw 0;
 	}
 
-	.textContainer > p {
+	.textContainer>p {
 		margin-left: 4vw;
 	}
 }
@@ -302,15 +301,15 @@ button:hover {
 		font-size: 32px;
 	}
 
-	.textContainer > h3 {
+	.textContainer>h3 {
 		margin: 10px 0;
 	}
 
-	.textContainer > p {
+	.textContainer>p {
 		margin-left: 28px;
 	}
 
-	.board > button {
+	.board>button {
 		top: -80px;
 		width: 70px;
 		height: 70px;

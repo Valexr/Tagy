@@ -15,7 +15,7 @@
 
 <script>
     import { afterUpdate } from 'svelte';
-    import { positions, isSorted } from './model/stores.js';
+    import { positions, isSorted } from '$lib/stores.js';
 
     export let number;
 

@@ -37,6 +37,10 @@ button {
     -webkit-user-select: none;
 }
 
+a {
+    color: inherit;
+}
+
 * {
     box-sizing: border-box;
 }

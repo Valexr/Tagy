@@ -1,6 +1,6 @@
 import type { Matrix } from "$types";
 
-export default function makeMatrix() {
+export default function makeMatrix(shuffle = true) {
     let arr: number[] = [],
         matrix: Matrix = Object.assign([], { void: { m: 0, n: 0 } }),
         arrIndex = 0
@@ -10,9 +10,8 @@ export default function makeMatrix() {
         let isSolvable;
 
         function shuffleArray() {
-
-            let randomIndex,
-                temp;
+            let randomIndex: number,
+                temp: number;
 
             arr.map(function (value, index) {
                 randomIndex = Math.floor(Math.random() * 16);
@@ -25,7 +24,6 @@ export default function makeMatrix() {
         }
 
         function checkIsSolvable() {
-
             let inversionCount = 0,
                 nullIndex = 0;
 
@@ -41,9 +39,11 @@ export default function makeMatrix() {
             ) isSolvable = true;
         }
 
-        arr = [];
+        // arr = []
         for (let i = 0; i < 16; i++) arr.push(i);
-        while (!isSolvable) {
+        if (!shuffle) arr.push(Number(arr.shift()));
+
+        while (shuffle && !isSolvable) {
             shuffleArray();
             checkIsSolvable();
         }

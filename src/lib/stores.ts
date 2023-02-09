@@ -14,7 +14,7 @@ export const positions = derived(matrix, $matrix => {
     return positions;
 });
 
-export const isSorted = derived(positions, $positions => {
+export const sorted = derived(positions, $positions => {
     if ($positions[0].n === 3 && $positions[0].m === 3) {
         for (let i = 15; i > 1; i--) {
             let m = Math.floor((i - 1) / 4),   // target position of tile

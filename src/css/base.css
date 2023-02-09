@@ -17,7 +17,25 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1rem;
+    padding: 1rem;
+}
+
+header>* {
+    margin: 0;
+}
+
+button {
+    text-align: inherit;
+    color: inherit;
+    background-color: var(--back);
+    padding: 0.45rem 1rem;
+    margin: 0;
+    border: 0;
+    border-radius: 0.25rem;
+    font-size: inherit;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 * {

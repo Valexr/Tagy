@@ -1,4 +1,44 @@
-<svelte:body on:click="{clickHandler}" on:keydown="{keyDownHandler}" />
+<script lang="ts">
+    import { isSorted } from "$lib/stores.js";
+    import { shuffle, move } from "$lib/actions.js";
+    import Board from "$components/Board.svelte";
+
+    let count = 0;
+
+    let isAboutVisible = false;
+
+    const moveTiles = (number: number) => move(number);
+
+    const toggleAboutVisibility = () => (isAboutVisible = !isAboutVisible);
+
+    const clickHandler = (e: MouseEvent) => {
+        const { classList, textContent, className } = e.target as HTMLElement;
+        if (classList.contains("responsive")) {
+            moveTiles(Number(textContent));
+            count += 1;
+        } else if (className === "shuffleBtn") {
+            shuffle();
+        } else if (
+            className === "openAboutBtn" ||
+            className === "closeAboutBtn"
+        ) {
+            toggleAboutVisibility();
+        }
+    };
+
+    const keyDownHandler = (e: KeyboardEvent) => {
+        const { classList, textContent } = e.target as HTMLElement;
+        if (
+            classList.contains("responsive") &&
+            (e.key === "Enter" || e.key === " ")
+        ) {
+            moveTiles(Number(textContent));
+        } else if (isAboutVisible && e.key === "Escape")
+            toggleAboutVisibility();
+    };
+</script>
+
+<svelte:body on:click={clickHandler} on:keydown={keyDownHandler} />
 
 <h1 class="visuallyHidden">The 15-puzzle game</h1>
 
@@ -8,7 +48,7 @@
             <h2 class="visuallyHidden">The game board</h2>
             <button
                 class="shuffleBtn"
-                class:hidden="{!$isSorted}"
+                class:hidden={!$isSorted}
                 title="Shuffle the tiles"
             >
                 <span class="visuallyHidden">Shuffle</span>
@@ -43,43 +83,3 @@
         </section>
     {/if}
 </main>
-
-<script lang="ts">
-    import { isSorted } from '$lib/stores.js';
-    import { shuffle, move } from '$lib/actions.js';
-    import Board from '$components/Board.svelte';
-
-    let count = 0;
-
-    let isAboutVisible = false;
-
-    const moveTiles = (number: number) => move(number);
-
-    const toggleAboutVisibility = () => (isAboutVisible = !isAboutVisible);
-
-    const clickHandler = (e: MouseEvent) => {
-        const { classList, firstChild, className } = e.target;
-        if (classList.contains('responsive')) {
-            moveTiles(firstChild.textContent);
-            count += 1;
-        } else if (className === 'shuffleBtn') {
-            shuffle();
-        } else if (
-            className === 'openAboutBtn' ||
-            className === 'closeAboutBtn'
-        ) {
-            toggleAboutVisibility();
-        }
-    };
-
-    const keyDownHandler = (e: KeyboardEvent) => {
-        const { classList, firstChild } = e.target;
-        if (
-            classList.contains('responsive') &&
-            (e.key === 'Enter' || e.key === ' ')
-        ) {
-            moveTiles(firstChild.textContent);
-        } else if (isAboutVisible && e.key === 'Escape')
-            toggleAboutVisibility();
-    };
-</script>

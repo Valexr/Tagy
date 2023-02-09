@@ -7,6 +7,5 @@
     border: 0.4rem solid var(--light);
     transition: transform, 0.15s;
     will-change: transform;
-    cursor: grab;
     padding: 0;
 }

@@ -5,8 +5,24 @@ export default function makeMatrix(shuffle = true) {
         matrix: Matrix = Object.assign([], { void: { m: 0, n: 0 } }),
         arrIndex = 0
 
-    function makeArray() {
+    makeArray();
 
+    for (let i = 0; i < 4; i++) {
+        matrix[i] = [];
+        for (let j = 0; j < 4; j++) {
+            if (arr[arrIndex]) {
+                matrix[i][j] = arr[arrIndex];
+            }
+            else {
+                matrix[i][j] = 0;
+                matrix.void = { m: i, n: j };
+            }
+            arrIndex++;
+        }
+    }
+    return matrix;
+
+    function makeArray() {
         let isSolvable;
 
         function shuffleArray() {
@@ -39,8 +55,8 @@ export default function makeMatrix(shuffle = true) {
             ) isSolvable = true;
         }
 
-        // arr = []
         for (let i = 0; i < 16; i++) arr.push(i);
+
         if (!shuffle) arr.push(Number(arr.shift()));
 
         while (shuffle && !isSolvable) {
@@ -48,21 +64,4 @@ export default function makeMatrix(shuffle = true) {
             checkIsSolvable();
         }
     }
-
-    makeArray();
-
-    for (let i = 0; i < 4; i++) {
-        matrix[i] = [];
-        for (let j = 0; j < 4; j++) {
-            if (arr[arrIndex]) {
-                matrix[i][j] = arr[arrIndex];
-            }
-            else {
-                matrix[i][j] = 0;
-                matrix.void = { m: i, n: j };
-            }
-            arrIndex++;
-        }
-    }
-    return matrix;
 }

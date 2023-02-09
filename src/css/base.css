@@ -34,7 +34,6 @@ button {
     border-radius: 0.25rem;
     font-size: inherit;
     user-select: none;
-    -moz-user-select: none;
     -webkit-user-select: none;
 }
 

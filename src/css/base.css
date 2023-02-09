@@ -1,0 +1,25 @@
+body,
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    font-family: system-ui;
+    text-align: center;
+    background-color: var(--light);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+* {
+    box-sizing: border-box;
+}

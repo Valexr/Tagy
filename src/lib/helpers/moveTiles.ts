@@ -1,5 +1,3 @@
-// position = {m, n} - position of clicked tile
-
 import type { Matrix, Position } from "$types";
 
 export default function moveTiles(matrix: Matrix, position: Position) {

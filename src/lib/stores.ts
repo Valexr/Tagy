@@ -1,10 +1,9 @@
-import type { Matrix } from '$types';
 import { writable, derived } from 'svelte/store';
 import makeMatrix from './helpers/makeMatrix';
+import type { Matrix } from '$types';
 
+export const score = writable<number>(0)
 export const matrix = writable<Matrix>(makeMatrix());
-
-// ======= MAKING ARRAY CONTAINING TILE POSITIONS =======
 
 export const positions = derived(matrix, $matrix => {
     let positions = [];
@@ -14,8 +13,6 @@ export const positions = derived(matrix, $matrix => {
             positions[$matrix[i][j]] = { m: i, n: j };
     return positions;
 });
-
-// ========== CHECKING IF THE BOARD IS SORTED ===========
 
 export const isSorted = derived(positions, $positions => {
     if ($positions[0].n === 3 && $positions[0].m === 3) {

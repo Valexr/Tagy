@@ -1,6 +1,6 @@
-import { matrix, positions } from './stores.js';
-import makeMatrix from './helpers/makeMatrix.js';
-import moveTiles from './helpers/moveTiles.js';
+import { matrix, positions } from './stores';
+import makeMatrix from './helpers/makeMatrix';
+import moveTiles from './helpers/moveTiles';
 import type { Position } from '$types';
 
 let currentPositions: Position[];

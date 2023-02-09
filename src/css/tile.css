@@ -1,0 +1,15 @@
+.tile {
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: 0.4rem solid var(--light);
+    background: var(--back);
+    transition: transform, 0.15s;
+    cursor: grab;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}

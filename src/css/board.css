@@ -1,0 +1,9 @@
+#board {
+    position: absolute;
+    max-inline-size: 25rem;
+    max-block-size: 25rem;
+    aspect-ratio: 1;
+    margin: auto;
+    inset: 1rem;
+    display: grid;
+}

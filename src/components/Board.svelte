@@ -1,9 +1,13 @@
-<script>
+<script lang="ts" context="module">
     import Tile from "$components/Tile.svelte";
-
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 </script>
 
-{#each numbers as number}
-    <Tile {number} />
-{/each}
+<script lang="ts">
+    const numbers = Array.from({ length: 15 }, (_, i) => i + 1);
+</script>
+
+<section id="board">
+    {#each numbers as number}
+        <Tile {number} />
+    {/each}
+</section>

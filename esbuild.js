@@ -7,7 +7,8 @@ import log from './env/log.js';
 const DEV = process.argv.includes('--dev');
 
 const serveOptions = {
-    servedir: 'public'
+    servedir: 'public',
+    port: 8001
 };
 
 const svelteOptions = {

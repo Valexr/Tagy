@@ -7,8 +7,7 @@
     "type": "module",
     "scripts": {
         "build": "node esbuild",
-        "dev": "node esbuild --dev",
-        "surge": "npm run build && npx surge public"
+        "dev": "node esbuild --dev"
     },
     "devDependencies": {
         "@tsconfig/svelte": "^3.0.0",

@@ -73,6 +73,7 @@ function createGame() {
         start() {
             shuffle(true);
             time.start(0);
+            steps.set(0);
             set("play");
         },
         pause() {
@@ -86,7 +87,6 @@ function createGame() {
         stop() {
             shuffle();
             time.stop();
-            steps.set(0);
             set("");
         },
         movable(index: number) {

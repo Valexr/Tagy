@@ -1,42 +1,41 @@
 <script lang="ts" context="module">
     import { shuffle } from "$lib/actions";
-    import { time, sorted } from "$lib/stores";
+    import { time, game, steps, sorted } from "$lib/stores";
 </script>
 
 <script lang="ts">
-    let state = "";
-
     function startGame() {
         shuffle($sorted);
         time.start(0);
-        state = "play";
+        $game = "play";
     }
     function pauseGame() {
         time.pause();
-        state = "pause";
+        $game = "pause";
     }
     function resumeGame() {
         time.start();
-        state = "play";
+        $game = "play";
     }
     function stopGame() {
         shuffle($sorted);
         time.stop();
-        state = "";
+        $steps = 0;
+        $game = "";
     }
 </script>
 
 <footer>
-    <nav class:playing={state === "play"}>
-        {#if state === "play"}
+    <nav class:playing={$game === "play"}>
+        {#if $game === "play"}
             <button on:click={stopGame}>Stop</button>
             <button on:click={pauseGame}>Pause</button>
         {:else}
             <button
                 class="lg"
-                on:click={state === "pause" ? resumeGame : startGame}
+                on:click={$game === "pause" ? resumeGame : startGame}
             >
-                {state === "pause" ? "Resume" : "Start"}
+                {$game === "pause" ? "Resume" : "Start"}
             </button>
         {/if}
     </nav>

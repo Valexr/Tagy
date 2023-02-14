@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
     import { move } from "$lib/actions";
-    import { positions, steps, sorted } from "$lib/stores.js";
+    import { game, positions, steps, sorted } from "$lib/stores.js";
 </script>
 
 <script lang="ts">
@@ -10,7 +10,7 @@
         const movable =
             $positions[number].n === $positions[0].n ||
             $positions[number].m === $positions[0].m;
-        if (movable && !$sorted) {
+        if ($game === "play" && movable && !$sorted) {
             move(number);
             $steps += 1;
         }

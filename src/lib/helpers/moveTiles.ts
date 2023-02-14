@@ -1,7 +1,6 @@
 import type { Matrix, Position } from "$types";
 
 export default function moveTiles(matrix: Matrix, position: Position) {
-    console.log(matrix, position)
     const amountOfTiles = Math.abs(position.m - matrix.void.m || position.n - matrix.void.n);
 
     function moveUp() {

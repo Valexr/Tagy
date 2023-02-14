@@ -38,6 +38,14 @@ button {
     -webkit-user-select: none;
 }
 
+button:hover {
+    background-color: var(--hover);
+}
+
+button:active {
+    background-color: var(--active);
+}
+
 a {
     color: inherit;
 }

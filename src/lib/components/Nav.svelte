@@ -1,5 +1,9 @@
 <script lang="ts" context="module">
-    import { game } from "$lib/stores";
+    import { game, sorted } from "$lib/stores";
+</script>
+
+<script lang="ts">
+    $: $sorted && game.stop();
 </script>
 
 <footer>

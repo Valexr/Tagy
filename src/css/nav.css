@@ -51,6 +51,7 @@ select {
 }
 
 footer nav button {
+    cursor: pointer;
     position: relative;
     box-shadow: var(--shadow);
 }

@@ -3,6 +3,7 @@ import makeMatrix from './helpers/makeMatrix';
 import type { Matrix } from '$types';
 
 export const score = writable<number>(0)
+export const steps = writable<number>(0)
 export const matrix = writable<Matrix>(makeMatrix());
 
 export const positions = derived(matrix, $matrix => {

@@ -8,4 +8,5 @@
     transition: transform, 0.15s;
     will-change: transform;
     padding: 0;
+    background-color: var(--shadow-color);
 }

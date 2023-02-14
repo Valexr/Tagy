@@ -1,0 +1,67 @@
+footer nav {
+    color-scheme: dark;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% - 25px);
+    display: flex;
+    flex-flow: column nowrap;
+    width: 300px;
+}
+
+footer nav.playing {
+    top: auto;
+    left: auto;
+    position: relative;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+footer nav fieldset {
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+    margin: 0;
+    padding: 1rem 0;
+}
+
+footer nav label {
+    flex: 0 1 min-content;
+}
+
+input,
+select {
+    border: 0;
+    border-radius: 0;
+    padding: 0.25rem;
+    color: var(--dark);
+    background-color: var(--light);
+    font-size: inherit;
+    border-radius: 0.15rem;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'%3E%3Cpath%20fill='currentColor'%20d='M2%200L0%202h4zm0%205L0%203h4z'/%3E%3C/svg%3E");
+    background-position: right 0.5em center;
+    background-repeat: no-repeat;
+    background-size: .5em .75em;
+    padding-right: 2em;
+}
+
+footer nav button {
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+footer nav button.lg {
+    font-size: 2rem;
+    box-shadow: var(--shadow-lg);
+}
+
+footer nav button:active {
+    top: 2px;
+    left: 2px;
+    box-shadow: none;
+}

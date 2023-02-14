@@ -1,11 +1,11 @@
 <script lang="ts" context="module">
-    import { score, sorted } from "$lib/stores";
+    import { score, steps, sorted } from "$lib/stores";
     import { shuffle } from "$lib/actions.js";
     import gh from "../svg/gh.svg";
 </script>
 
 <header>
-    <h3 class="counter">Steps: {$score}</h3>
+    <p>Score: {$score}</p>
     <h1>
         <a
             href="https://github.com/Valexr/Tagy"
@@ -17,12 +17,5 @@
         </a>
         Tagy
     </h1>
-    <nav>
-        <button
-            on:click={() => shuffle($sorted)}
-            title="{$sorted ? 'Shuffle' : 'Sort'} the tiles"
-        >
-            {$sorted ? "Shuffle" : "Sort"}
-        </button>
-    </nav>
+    <p>Steps: {$steps}</p>
 </header>

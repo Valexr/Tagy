@@ -1,6 +1,6 @@
 import type { Matrix } from "$types";
 
-export default function makeMatrix(shuffle = true) {
+export default function makeMatrix(shuffle = false) {
     let arr: number[] = [],
         matrix: Matrix = Object.assign([], { void: { m: 0, n: 0 } }),
         arrIndex = 0

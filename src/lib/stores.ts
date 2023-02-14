@@ -2,7 +2,7 @@ import { writable, derived } from 'svelte/store';
 import makeMatrix from './helpers/makeMatrix';
 import type { Matrix } from '$types';
 
-export const score = writable<number>(0)
+export const time = timer(0)
 export const steps = writable<number>(0)
 export const matrix = writable<Matrix>(makeMatrix());
 
@@ -27,3 +27,36 @@ export const sorted = derived(positions, $positions => {
     }
     else return false;
 });
+
+export function timer(ms = 0, started = false) {
+    const time = (ms: number) => new Date(ms).toISOString().slice(11, -5)
+
+    const { subscribe, set } = writable(time(ms))
+
+    let interval = 0
+
+    started && start()
+
+    function start(up = 0) {
+        ms = up || ms
+        set(time(ms))
+        stop()
+        interval = setInterval(() => {
+            ms = ms + 1000
+            if (ms < 0) stop()
+            else set(time(ms));
+        }, 1000);
+    }
+
+    function pause() {
+        clearInterval(interval);
+    };
+    function stop() {
+        clearInterval(interval);
+        ms = 0
+    };
+
+    return {
+        subscribe, set, start, pause, stop
+    }
+};

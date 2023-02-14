@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
     import { move } from "$lib/actions";
-    import { positions, score, steps, sorted } from "$lib/stores.js";
+    import { positions, steps, sorted } from "$lib/stores.js";
 </script>
 
 <script lang="ts">

@@ -1,11 +1,11 @@
 <script lang="ts" context="module">
-    import { score, steps, sorted } from "$lib/stores";
+    import { time, steps, sorted } from "$lib/stores";
     import { shuffle } from "$lib/actions.js";
     import gh from "../svg/gh.svg";
 </script>
 
 <header>
-    <p>Score: {$score}</p>
+    <p>Time: {$time}</p>
     <h1>
         <a
             href="https://github.com/Valexr/Tagy"

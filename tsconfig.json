@@ -5,8 +5,8 @@
             "$lib/*": [
                 "src/lib/*"
             ],
-            "$components/*": [
-                "src/components/*"
+            "$svg/*": [
+                "src/svg/*"
             ],
             "$types": [
                 "src/types.ts"

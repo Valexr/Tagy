@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-    import Tile from "$components/Tile.svelte";
+    import Tile from "$lib/components/Tile.svelte";
 </script>
 
 <script lang="ts">
@@ -8,8 +8,8 @@
 
 <main>
     <section id="board">
-        {#each numbers as number}
-            <Tile {number} />
+        {#each numbers as index}
+            <Tile {index} />
         {/each}
     </section>
 </main>

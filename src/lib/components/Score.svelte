@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
-    import { time, steps, sorted } from "$lib/stores";
-    import { shuffle } from "$lib/actions.js";
-    import gh from "../svg/gh.svg";
+    import { time, steps } from "$lib/stores";
+    import gh from "$svg/gh.svg";
 </script>
 
 <header>

@@ -1,9 +1,10 @@
-import { writable, derived } from 'svelte/store';
-import makeMatrix from './helpers/makeMatrix';
+import { writable, derived, get } from 'svelte/store';
+import makeMatrix from './matrix';
+import moveTiles from './tiles';
 import type { Matrix } from '$types';
 
-export const time = timer(0)
-export const game = writable('')
+export const time = createTimer(0)
+export const game = createGame()
 export const steps = writable(0)
 export const matrix = writable<Matrix>(makeMatrix());
 
@@ -19,7 +20,7 @@ export const positions = derived(matrix, $matrix => {
 export const sorted = derived(positions, $positions => {
     if ($positions[0].n === 3 && $positions[0].m === 3) {
         for (let i = 15; i > 1; i--) {
-            let m = Math.floor((i - 1) / 4),   // target position of tile
+            let m = Math.floor((i - 1) / 4),
                 n = i - 1 - 4 * m;
 
             if ($positions[i].m !== m || $positions[i].n !== n) return false;
@@ -29,8 +30,8 @@ export const sorted = derived(positions, $positions => {
     else return false;
 });
 
-export function timer(ms = 0, started = false) {
-    const time = (ms: number) => new Date(ms).toISOString().slice(11, -5)
+function createTimer(ms = 0, started = false) {
+    const time = (ms: number) => new Date(ms * 1000).toISOString().slice(11, -5)
 
     const { subscribe, set } = writable(time(ms))
 
@@ -41,11 +42,9 @@ export function timer(ms = 0, started = false) {
     function start(up = 0) {
         ms = up || ms
         set(time(ms))
-        stop()
+        clearInterval(interval);
         interval = setInterval(() => {
-            ms = ms + 1000
-            if (ms < 0) stop()
-            else set(time(ms));
+            set(time(ms += 1));
         }, 1000);
     }
 
@@ -61,3 +60,41 @@ export function timer(ms = 0, started = false) {
         subscribe, set, start, pause, stop
     }
 };
+
+function createGame() {
+    const { subscribe, set } = writable('')
+
+    function shuffle(shuffle?: boolean) {
+        matrix.set(makeMatrix(shuffle))
+    }
+
+    return {
+        subscribe,
+        start() {
+            shuffle(true);
+            time.start(0);
+            set("play");
+        },
+        pause() {
+            time.pause();
+            set("pause");
+        },
+        resume() {
+            time.start();
+            set("play");
+        },
+        stop() {
+            shuffle();
+            time.stop();
+            steps.set(0);
+            set("");
+        },
+        movable(index: number) {
+            const pos = (i: number) => get(positions)[i]
+            return pos(index).n === pos(0).n || pos(index).m === pos(0).m;
+        },
+        move(number: number) {
+            matrix.update(matrix => moveTiles(matrix, get(positions)[number]));
+        }
+    }
+}

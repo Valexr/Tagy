@@ -5,7 +5,7 @@
 </script>
 
 <header>
-    <p>Time: {$time}</p>
+    <p>{$time}</p>
     <h1>
         <a
             href="https://github.com/Valexr/Tagy"

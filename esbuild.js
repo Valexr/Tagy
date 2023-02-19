@@ -51,4 +51,3 @@ if (DEV) {
 } else {
     await build(buildOptions);
 }
-

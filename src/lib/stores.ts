@@ -14,6 +14,7 @@ export const positions = derived(matrix, $matrix => {
     for (let i = 0; i < 4; i++)
         for (let j = 0; j < 4; j++)
             positions[$matrix[i][j]] = { m: i, n: j };
+
     return positions;
 });
 

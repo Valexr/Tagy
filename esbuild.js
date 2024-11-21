@@ -11,7 +11,7 @@ const serveOptions = {
 };
 
 const svelteOptions = {
-    compilerOptions: { dev: DEV },
+    compilerOptions: { dev: DEV, runes: true, modernAst: true },
     preprocess: [
         preprocess({
             sourceMap: DEV,

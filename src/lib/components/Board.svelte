@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
     import Tile from "$lib/components/Tile.svelte";
 </script>
 
